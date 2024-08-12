@@ -143,3 +143,27 @@ function listAllCourses(students) {
   return allcourses;
 }
 console.log(listAllCourses(students));
+
+/**********
+  Question 6:
+  removeCourseFromStudent(course, student):
+  - recieves a student object
+  - recieves a course name (string)
+  - removes the course from the student's courses array
+  - returns the student object
+  ===
+  ANSWER:
+  { id: 7, name: 'Grace', courses: [ 'Math', 'English', 'Music' ] }
+  **********/
+
+function removeCourseFromStudent(student, course) {
+  let newStudent = student.courses.filter((subject) => {
+    if (subject != course) {
+      return true;
+    }
+  });
+  student.courses = newStudent;
+  return student;
+  // Your code here
+}
+console.log(removeCourseFromStudent(students[6], "Science"));
