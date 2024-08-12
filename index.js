@@ -115,3 +115,31 @@ function countCourses(student) {
   return student.courses.length;
 }
 console.log(countCourses(students[1]));
+
+/**********
+  Question 5: 🌶️🌶️
+  listAllCourses(students):
+  - recieves an array of student objects
+  - returns an array of all unique course names across all students
+	===
+	ANSWER: 
+	[
+	  'Math',    'Science',
+	  'History', 'English',
+	  'Art',     'Music',
+	  'PE'
+	]
+  **********/
+function listAllCourses(students) {
+  let allcourses = [];
+
+  students.forEach((student) => {
+    student.courses.forEach((course) => {
+      if (!allcourses.includes(course)) {
+        allcourses.push(course);
+      }
+    });
+  });
+  return allcourses;
+}
+console.log(listAllCourses(students));
