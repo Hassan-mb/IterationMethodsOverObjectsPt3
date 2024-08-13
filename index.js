@@ -97,7 +97,7 @@ console.log(getCourse(students[4], 2));
 	**********/
 
 function addCourseToStudent(student, course) {
-  student.course + course;
+  student.courses.push(course);
   return student;
 }
 
@@ -167,3 +167,40 @@ function removeCourseFromStudent(student, course) {
   // Your code here
 }
 console.log(removeCourseFromStudent(students[6], "Science"));
+
+/**********
+  Question 7:
+  findStudentById(studentId, students):
+  - recieves a student id (number)
+  - recieves an array of student objects
+  - returns the student object with the matching id
+  ===
+  ANSWER: { id: 10, name: 'Jack', courses: [ 'Math', 'History', 'Music' ] }
+  **********/
+
+function findStudentById(studentId, students) {
+  let studentFound = students.find((student) => {
+    if (student.id == studentId) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  return studentFound;
+}
+
+console.log(findStudentById(10, students));
+
+function getStudentsByCourse(course, students) {
+  let studentInCourse = students.filter((student) => {
+    if (student.courses.includes(course)) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return studentInCourse;
+}
+
+console.log(getStudentsByCourse("Music", students));
